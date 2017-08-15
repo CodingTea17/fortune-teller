@@ -7,10 +7,11 @@ $(document).ready(function() {
     if(nextCounter === 5){
       // SUBMIT CODE GOES HERE
       $("#q5").hide();
+      $("#next-btn").hide();
       $("#fortune-card").show();
 
       $("#user-fortune").text();
-      
+
     } else if (nextCounter === 1) {
       $("#q1").hide();
       $("#q2").show();
@@ -23,6 +24,7 @@ $(document).ready(function() {
     } else if (nextCounter === 4) {
       $("#q4").hide();
       $("#q5").show();
+      $("#next-btn").text("Get Yo Fortune");
     }
   });
 
