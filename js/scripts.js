@@ -1,5 +1,30 @@
+// BACKEND LOGIC
 var nextCounter = 0;
+var q1Counter = 0;
+var q2Counter = 0;
+var q3Counter = 0;
+var q4Counter = 0;
+var q5Counter = 0;
 
+var answerCounter = function(){
+  $("input:checkbox[name=question1]:checked").each(function(){
+    q1Counter += 1;
+  });
+  $("input:checkbox[name=question2]:checked").each(function(){
+    q2Counter += 1;
+  });
+  $("input:checkbox[name=question3]:checked").each(function(){
+    q3Counter += 1;
+  });
+  $("input:checkbox[name=question4]:checked").each(function(){
+    q4Counter += 1;
+  });
+  $("input:checkbox[name=question5]:checked").each(function(){
+    q5Counter += 1;
+  });
+};
+
+// FRONTEND LOGIC
 $(document).ready(function() {
   $("form#questions").submit(function() {
     event.preventDefault();
@@ -10,7 +35,15 @@ $(document).ready(function() {
       $("#next-btn").hide();
       $("#fortune-card").show();
 
-      $("#user-fortune").text();
+      // Calls and runs the backend function for adding up the counter vals
+      answerCounter();
+      var totalcounter = (q1Counter+q2Counter+q3Counter+q4Counter+q5Counter)
+
+      if (totalcounter % 2 === 0) {
+        $("#user-fortune").text("This is even!");
+      } else {$("#user-fortune").text("This is odd!");
+      }
+
 
     } else if (nextCounter === 1) {
       $("#q1").hide();
